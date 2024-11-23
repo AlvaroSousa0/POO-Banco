@@ -12,6 +12,7 @@ class Conta(abc.ABC):
 
     def depositar(self, valor):
         self.saldo += valor
+        print(f'Seu saldo é: {self.saldo}')
 
     
 class ContaCorrente(Conta):
@@ -34,7 +35,7 @@ class ContaCorrente(Conta):
 
 class ContaPoupanca(Conta):
     def __init__(self, agencia: int, conta: int ,saldo: float) -> None:
-        super().__init__(self, agencia,conta,saldo)
+        super().__init__(agencia,conta,saldo)
 
 
     def sacar(self, valor):

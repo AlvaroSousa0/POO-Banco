@@ -18,7 +18,7 @@ class Banco:
     def checa_conta(self, conta):
         return conta in self.contas or False
     
-    def novo_cliente_corrente(self, nome, idade, saldo):
+    def novo_cliente_corrente(self, conta_cliente, saldo):
         """
         Cria um novo cliente com conta corrente
 
@@ -35,16 +35,14 @@ class Banco:
         num_conta = random.randint(1,9999999)
         agencia = random.randint(1, 9999)
         cc = conta.ContaCorrente(agencia, num_conta, saldo)
-        cliente_conta = cliente.Cliente(nome, idade)
+        cliente_conta = conta_cliente
         cliente_conta.conta = cc
         self.contas.append(cc)
         self.agencias.append(agencia)
         self.cliente.append(cliente_conta)
-        print(f'Conta: {num_conta}',
-              f'Agência: {agencia}')
         
 
-    def novo_cliente_poupanca(self,nome, idade, saldo):
+    def novo_cliente_poupanca(self, conta_cliente, saldo):
         """
         Cria um novo cliente com conta poupanca
 
@@ -60,11 +58,11 @@ class Banco:
         """
         num_conta = random.randint(1,9999999)
         agencia = random.randint(1, 9999)
-        cc = conta.ContaPoupanca(agencia, num_conta, saldo)
-        cliente_conta = cliente.Cliente(nome, idade)
-        cliente_conta.conta = cc
-        self.contas.append(cc)
+        cp = conta.ContaPoupanca(agencia, num_conta, saldo)
+        cliente_conta = conta_cliente
+        cliente_conta.conta = cp
+        self.contas.append(cp)
         self.agencias.append(agencia)
         self.cliente.append(cliente_conta)
-        print(f'Conta: {num_conta}',
-              f'Agência: {agencia}')
+
+        
