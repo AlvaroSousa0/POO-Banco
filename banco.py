@@ -11,13 +11,6 @@ class Banco:
         self.cliente = cliente or []
 
 
-    def checa_agencia(self, agencia):
-        return agencia in self.agencias or False
-    
-
-    def checa_conta(self, conta):
-        return conta in self.contas or False
-    
     def novo_cliente_corrente(self, conta_cliente, saldo):
         """
         Cria um novo cliente com conta corrente
